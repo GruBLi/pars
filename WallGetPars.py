@@ -32,7 +32,7 @@ def file_writer(data):
         pen = csv.writer(file)
         pen.writerow(('likes', 'body', 'url'))
         for post in data:
-            if post['attachments'][0]['type'] == 'photo':
+            if ('attachments' in post.keys()) and post['attachments'][0]['type'] == 'photo':
                 img_url = post['attachments'][0]['photo']['sizes'][-1]['url']
             else:
                 img_url = 'pass'
